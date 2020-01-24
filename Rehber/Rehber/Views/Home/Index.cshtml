@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Rehber.Models.tblCalisan>
+@{
+    ViewBag.Title = "Ana Sayfa";
+}
+
+<h2>Ana Sayfa</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.ActionLink("Çalışan Detay", "Details", new { id = item.CalisanID })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Rehber.Models.tblDepartman>
+
+@{
+    ViewBag.Title = "Departman Ana Sayfa";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h2>Departman Ana Sayfa</h2>
+
+<p>
+    @Html.ActionLink("Departman Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Departman Adı
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmanAd)
+        </td>
+        <td>
+            @Html.ActionLink("Sil", "Sil", new { id=item.DepartmanID })
+        </td>
+    </tr>
+}
+
+</table>

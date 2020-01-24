@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Rehber.Models.tblCalisan>
+
+@{
+    ViewBag.Title = "Çalışan Ana Sayfa";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h2>Çalışan Ana Sayfa</h2>
+<p>
+    @Html.ActionLink("Çalışan Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            Yönetici Adı
+        </th>
+        <th>
+            Departman Adı
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblCalisan2.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblDepartman.DepartmanAd)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.CalisanID }) |
+                @Html.ActionLink("Çalışan Detay", "Details", new { id = item.CalisanID }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.CalisanID })
+            </td>
+        </tr>
+    }
+
+</table>
